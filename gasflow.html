@@ -179,8 +179,8 @@
         //aug 2019 popup kalınlık renk
         var aug2019= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
         onEachFeature: function(feature, layer) {
-            if (feature.properties && feature.properties.Aug_19) {
-                layer.bindPopup(feature.properties.Aug_19, {closeButton: false, offset: L.point(0, -20)});
+            if (feature.properties && feature.properties.Jul_19) {
+                layer.bindPopup(feature.properties.Jul_19, {closeButton: false, offset: L.point(0, -20)});
                 layer.on('mouseover', function() { layer.openPopup(); });
                 layer.on('mouseout', function() { layer.closePopup(); });
             }
@@ -193,27 +193,6 @@
         //jun 2019 popup kalınlık renk
         //may 2019 popup kalınlık renk
 
-        //first definition of custom icon
-        var customIcon2 = L.icon({
-          iconUrl: 'assets/markers/caution.png',
-          iconSize:     [32, 37],
-          //iconAnchor:   [39.94702,32.84872],
-          //popupAnchor:  [39.92702,32.84872]
-        });
-
-        var popupContent= "<img src=images/coalgas.jpg>" + "<br>" +" <br>A photo from the site whilst demolishing is underway "
-        //then creation of marker with custom properties
-        var plant= L.marker([39.92702,32.84872], {icon: customIcon2}).bindPopup(popupContent, {
-            maxWidth: "auto"
-        }
-            );
-        //adding hover functionality
-        plant.on('mouseover', function (e) {
-            this.openPopup();
-        });
-        plant.on('mouseout', function (e) {
-            this.closePopup();
-        });
 
 
 
@@ -239,10 +218,7 @@
          //grouping overlaying features
         var overlayElements = {
         "Overlay Elements": {
-          "Risk Zone 1": riskZone1,
-          "Risk Zone 2": riskZone2,
-          "Coal-Gas Plant": plant,
-          "Dump Site": dumpSite,
+
           "Aug-19": aug2019
 
     }
