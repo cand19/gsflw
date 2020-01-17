@@ -178,9 +178,16 @@
 
         //aug 2019 popup kalınlık renk
         var aug2019= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
-
-        }).bindPopup(function (layer) {
-            return layer.feature.properties.Aug_19;
+        onEachFeature: function(feature, layer) {
+            if (feature.properties && feature.properties.Aug_19) {
+                layer.bindPopup(feature.properties.Aug_19, {closeButton: false, offset: L.point(0, -20)});
+                layer.on('mouseover', function() { layer.openPopup(); });
+                layer.on('mouseout', function() { layer.closePopup(); });
+            }
+        },
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng);
+        }
         });
         //jul 2019 popup kalınlık renk
         //jun 2019 popup kalınlık renk
