@@ -149,7 +149,8 @@
 
         info.update = function (props) {
         this._div.innerHTML = "<h4>Gas Trade Flows Map in Europe</h4>" +(props ? "<b>Exporter: </b>"
-         + props.Exit + '<br />' + "<b>Importer: </b>"+props.Entry+ '<br />'+"<b> Max Flow (Mm3/h): </b>"
+         + props.Exit1 + '<br />' + "<b>Importer: </b>"+props.Entry1+ '<br />'+"<b> Border Point: </b>"
+        + props.BorderPoint+ '<br />'+"<b> Max Flow (Mm3/h): </b>"
         + props.European_3      : 'Hover over Lines'
       );
   };
