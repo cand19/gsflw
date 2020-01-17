@@ -137,17 +137,24 @@
           var sizeToUse;
           var volume = feature.properties.Aug_19;
 
-          volume >0 && volume<230 ? colorToUse = "#fc8d62" && sizeToUse=2:
-         volume > 230 && volume<500 ? colorToUse = "#8da0cb"&& sizeToUse=3:
-          volume >501 && volume<750 ? colorToUse = "#ffd92f"&& sizeToUse=4:
-          volume>751 && volume<1500 ? colorToUse = "#e78ac3"&& sizeToUse=5:
+          volume >0 && volume<230 ? colorToUse = "#fc8d62" :
+         volume > 230 && volume<500 ? colorToUse = "#8da0cb":
+          volume >501 && volume<750 ? colorToUse = "#ffd92f":
+          volume>751 && volume<1500 ? colorToUse = "#e78ac3":
           volume> 1501 ? colorToUse = "#a6d854":
               colorToUse = "#fff";
+
+        volume >0 && volume<230 ? sizeToUse = 1 :
+         volume > 230 && volume<500 ? sizeToUse = 3:
+          volume >501 && volume<750 ? sizeToUse = 5:
+          volume>751 && volume<1500 ? sizeToUse = 7:
+          volume> 1501 ? sizeToUse = 9:
+              sizeToUse = 0.5;
 
 
           return {
             color: colorToUse,
-            weight: 4,
+            weight: sizeToUse,
             opacity: 1,
           };
         }
