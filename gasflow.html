@@ -148,9 +148,9 @@
       };
 
         info.update = function (props) {
-        this._div.innerHTML = "<h4>Gas Trade Flows Map in Europe</h4>" +(props ? "<b>Exporter: </b>"+
-          '<b>' + props.Exit + '</b><br />' + "<b>Importer: </b>"+props.Entry+ "Max Flow (Mm3/h): "
-+props.Max_flow_Mm3_h      : 'Hover over Lines'
+        this._div.innerHTML = "<h4>Gas Trade Flows Map in Europe</h4>" +(props ? "<b>Exporter: </b>"
+         + props.Exit + '<br />' + "<b>Importer: </b>"+'<br />'+ props.Entry+ "<b> Max Flow (Mm3/h): </b>"
+        +props.Max_flow_Mm3_h      : 'Hover over Lines'
       );
   };
           info.addTo(map);
