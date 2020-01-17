@@ -169,27 +169,66 @@
 
 
         //aug 2019 popup kalınlık renk
-        var aug2019= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
-        onEachFeature: function (feature, layer) {
-         layer.bindPopup(feature.properties.Jul_19);
-     }
+        var jul19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
+            onEachFeature: onEachFeature
         });
         //jul 2019 popup kalınlık renk
         //jun 2019 popup kalınlık renk
         //may 2019 popup kalınlık renk
-
-
-
-
-        //initiating the map variable
         var map = L.map('map', {
           zoom: 5,
           center: [48.32,19.85],
-          layers: [grayscale,aug2019]
+          layers: [grayscale,jul19]
 
         });
-        //setting the basic attributes of the map
 
+        // control that shows state info on hover
+        var info = L.control();
+
+        info.onAdd = function (map) {
+        this._div = L.DomUtil.create('div', 'info');
+        this.update();
+        return this._div;
+      };
+
+        info.update = function (props) {
+        this._div.innerHTML = "<h4>2014 Municipal Election Results</h4>" +(props ? "<b>Exporting Country: </b>"+
+          '<b>' + props.Exit + '</b><br />' + "<b>Importing Country: "+props.Entry
+      : 'Hover over Lines'
+      );
+  };
+          info.addTo(map);
+        //initiating the map variable
+
+        //setting the basic attributes of the map
+        function highlightFeature(e) {
+        var layer = e.target;
+
+        layer.setStyle({
+          weight: 5,
+          color: '#666',
+          dashArray: '',
+          fillOpacity: 0.7
+        });
+
+        if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+          layer.bringToFront();
+        }
+        info.update(layer.feature.properties);
+      }
+
+        function resetHighlight(e) {
+        jul19.resetStyle(e.target);
+        info.update();
+      }
+
+      function onEachFeature(feature, layer) {
+        layer.on({
+          mouseover: highlightFeature,
+          mouseout: resetHighlight,
+
+        });
+      }
 
 
 
@@ -204,7 +243,7 @@
         var overlayElements = {
         "Overlay Elements": {
 
-          "Aug-19": aug2019
+          "Jul-19": jul19
 
     }
 };
