@@ -115,15 +115,19 @@
 
 
 
-        //aug 2019 popup kalınlık renk
+        //aug 2019
         var aug19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
             style: CustomStyle_aug19,
             onEachFeature: onEachFeature
         });
 
-        //jul 2019 popup kalınlık renk
+        //jul 2019
+        var jul19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
+            style: CustomStyle_jul19,
+            onEachFeature: onEachFeature
+        });
         //jun 2019 popup kalınlık renk
-        //may 2019 popup kalınlık renk
+
         var map = L.map('map', {
           zoom: 3,
           center: [48.32,19.85],
@@ -131,17 +135,45 @@
 
         });
 
-                // Set up a custom style for lines
+         // Set up a custom style for aug19
         function CustomStyle_aug19(feature) {
           var colorToUse;
           var sizeToUse;
           var volume = feature.properties.Aug_19;
 
-          volume >=0 && volume<230 ? colorToUse = "#f0f9e8" :
-         volume > 230 && volume<500 ? colorToUse = "#bae4bc":
-          volume >501 && volume<750 ? colorToUse = "#7bccc4":
-          volume>751 && volume<2500 ? colorToUse = "#43a2ca":
-          volume> 2501 ? colorToUse = "#0868ac":
+          volume >=0 && volume<230 ? colorToUse = "#edf8fb" :
+         volume > 230 && volume<500 ? colorToUse = "#b3cde3":
+          volume >501 && volume<750 ? colorToUse = "#8c96c6":
+          volume>751 && volume<2500 ? colorToUse = "#8856a7":
+          volume> 2501 ? colorToUse = "#810f7c":
+              colorToUse = "#fff";
+
+        volume >=0 && volume<230 ? sizeToUse = 1 :
+         volume > 230 && volume<500 ? sizeToUse = 3:
+          volume >501 && volume<750 ? sizeToUse = 5:
+          volume>751 && volume<2500 ? sizeToUse = 7:
+          volume> 2501 ? sizeToUse = 9:
+              sizeToUse = 0.5;
+
+
+          return {
+            color: colorToUse,
+            weight: sizeToUse,
+            opacity: 1,
+          };
+        }
+
+        // Set up a custom style for aug19
+        function CustomStyle_aug19(feature) {
+          var colorToUse;
+          var sizeToUse;
+          var volume = feature.properties.Jul_19;
+
+          volume >=0 && volume<230 ? colorToUse = "#edf8fb" :
+         volume > 230 && volume<500 ? colorToUse = "#b3cde3":
+          volume >501 && volume<750 ? colorToUse = "#8c96c6":
+          volume>751 && volume<2500 ? colorToUse = "#8856a7":
+          volume> 2501 ? colorToUse = "#810f7c":
               colorToUse = "#fff";
 
         volume >=0 && volume<230 ? sizeToUse = 1 :
@@ -216,7 +248,8 @@
          //grouping overlaying features
         var overlayElements = {
         "Date": {
-        "Aug-19": aug19
+        "Aug-19": aug19,
+        "Jul-19": jul19
     }
 };
 
