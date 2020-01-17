@@ -117,15 +117,8 @@
 
         //aug 2019 popup kalınlık renk
         var aug19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
+            style: CustomStyle,
             onEachFeature: onEachFeature
-        });
-
-        aug19.setStyle({
-          weight: 4,
-          color: '#006d2c',
-          dashArray: '',
-          opacity: 1,
-          fillOpacity: 0.7
         });
 
         //jul 2019 popup kalınlık renk
@@ -137,6 +130,28 @@
           layers: [CartoDB_DarkMatter,aug19]
 
         });
+
+                // Set up a custom style for lines
+        function CustomStyle(feature) {
+          var colorToUse;
+          var volume = feature.properties.Aug_19;
+
+          volume >0 and volume<230 ? colorToUse = "#fc8d62":
+         volume > 230 and volume<500 ? colorToUse = "#8da0cb":
+          volume >501 and volume<750 ? colorToUse = "#ffd92f":
+          volume>751 and volume<1500 ? colorToUse = "#e78ac3":
+          volume> 1501 ? colorToUse = "#a6d854":
+              colorToUse = "#fff";
+
+          return {
+
+            weight: 1,
+            opacity: 1,
+            color: 'white',
+            dashArray: '3',
+            fillOpacity: 0.7
+          };
+        }
 
         // control that shows state info on hover
         var info = L.control();
