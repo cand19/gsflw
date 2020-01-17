@@ -160,34 +160,19 @@
   subdomains: 'abcd',
   maxZoom: 19
 });
-        //definition of circle of risk zone
-        var riskZone1=L.circle([39.92702,32.84872], {radius: 4000, color: '#a50f15'}).bindPopup("1st Degree Risk Zone ca. 4km in radius");
-        var riskZone2=L.circle([39.92702,32.84872], {radius: 8000, color: '#de2d26'}).bindPopup("2nd Degree Risk Zone ca. 8km in radius");
-        //dump site
-        var customIcon1 = L.icon({
-          iconUrl: 'assets/markers/skull.png',
-          iconSize:     [32, 37],
-          //iconAnchor:   [39.94702,32.84872],
-          //popupAnchor:  [39.92702,32.84872]
-        });
-        var dumpSite=L.marker([40.0142, 32.75625],{icon:customIcon1}).bindPopup("Dump Site");
 
-        //route
+        //data
         var tradeData= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson").bindPopup("Route from the dismantling site to the dump site");
+
+        //define generic a style
+
 
 
         //aug 2019 popup kalınlık renk
         var aug2019= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
-        onEachFeature: function(feature, layer) {
-            if (feature.properties && feature.properties.Jul_19) {
-                layer.bindPopup(feature.properties.Jul_19, {closeButton: false, offset: L.point(0, -20)});
-                layer.on('mouseover', function() { layer.openPopup(); });
-                layer.on('mouseout', function() { layer.closePopup(); });
-            }
-        },
-        pointToLayer: function (feature, latlng) {
-            return L.circleMarker(latlng);
-        }
+        onEachFeature: function (feature, layer) {
+         layer.bindPopup(feature.properties.Jul_19);
+     }
         });
         //jul 2019 popup kalınlık renk
         //jun 2019 popup kalınlık renk
