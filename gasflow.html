@@ -117,7 +117,7 @@
 
         //aug 2019 popup kalınlık renk
         var aug19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
-            style: CustomStyle,
+            style: CustomStyle_19,
             onEachFeature: onEachFeature
         });
 
@@ -132,16 +132,18 @@
         });
 
                 // Set up a custom style for lines
-        function CustomStyle(feature) {
+        function CustomStyle_19(feature) {
           var colorToUse;
+          var sizeToUse;
           var volume = feature.properties.Aug_19;
 
-          volume >0 && volume<230 ? colorToUse = "#fc8d62":
-         volume > 230 && volume<500 ? colorToUse = "#8da0cb":
-          volume >501 && volume<750 ? colorToUse = "#ffd92f":
-          volume>751 && volume<1500 ? colorToUse = "#e78ac3":
+          volume >0 && volume<230 ? colorToUse = "#fc8d62" && sizeToUse=2:
+         volume > 230 && volume<500 ? colorToUse = "#8da0cb"&& sizeToUse=3:
+          volume >501 && volume<750 ? colorToUse = "#ffd92f"&& sizeToUse=4:
+          volume>751 && volume<1500 ? colorToUse = "#e78ac3"&& sizeToUse=5:
           volume> 1501 ? colorToUse = "#a6d854":
               colorToUse = "#fff";
+
 
           return {
             color: colorToUse,
