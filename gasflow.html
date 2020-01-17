@@ -128,6 +128,10 @@
         var jul19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
             onEachFeature: onEachFeature
         });
+
+        var jun19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
+            onEachFeature: onEachFeature
+        });
         //jul 2019 popup kalınlık renk
         //jun 2019 popup kalınlık renk
         //may 2019 popup kalınlık renk
@@ -149,9 +153,9 @@
 
         info.update = function (props) {
         this._div.innerHTML = "<h4>Gas Trade Flows Map in Europe</h4>" +(props ? "<b>Exporter: </b>"
-         + props.Exit1 + '<br />' + "<b>Importer: </b>"+props.Entry1+ '<br />'+"<b> Border Point: </b>"
-        + props.BorderPoint+ '<br />'+"<b> Max Flow (Mm3/h): </b>"
-        + props.European_3      : 'Hover over Lines'
+         + props.Exit + '<br />' + "<b>Importer: </b>"+props.Entry+ '<br />'+"<b> Border Point: </b>"
+        + props.Borderpoint+ '<br />'+  "<b> Max Flow (Mm3/h): </b>"
+        + props.maxFlow +       : 'Hover over Lines'
       );
   };
           info.addTo(map);
@@ -175,7 +179,7 @@
       }
 
         function resetHighlight(e) {
-        layer.resetStyle(e.target);
+        jul19.resetStyle(e.target);
         info.update();
       }
 
