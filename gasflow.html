@@ -117,7 +117,7 @@
 
         //aug 2019 popup kalınlık renk
         var aug19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
-            style: CustomStyle_19,
+            style: CustomStyle_aug19,
             onEachFeature: onEachFeature
         });
 
@@ -132,7 +132,7 @@
         });
 
                 // Set up a custom style for lines
-        function CustomStyle_19(feature) {
+        function CustomStyle_aug19(feature) {
           var colorToUse;
           var sizeToUse;
           var volume = feature.properties.Aug_19;
