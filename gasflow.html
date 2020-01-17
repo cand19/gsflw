@@ -54,67 +54,23 @@
             margin-bottom: .2em;
             display: block;
     }
+
+        .info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 0 0 5px;
+    color: #777;
+}
     </style>
 </head>
 <body>
-    <div id="sidebar" class="leaflet-sidebar collapsed">
-        <!-- Nav tabs -->
-        <div class="leaflet-sidebar-tabs">
-            <ul role="tablist">
-                <li><a href="#home" role="tab"><i class="fa fa-bars"></i></a></li>
 
-                <!-- <li class="disabled"><a href="#messages" role="tab"><i class="fa fa-envelope"></i></a></li> -->
-            </ul>
-
-            <!--<ul role="tablist">
-                <li><a href="#settings" role="tab"><i class="fa fa-gear"></i></a></li>
-            </ul> -->
-        </div>
-
-        <!-- Tab panes -->
-        <div class="leaflet-sidebar-content">
-            <div class="leaflet-sidebar-pane" id="home">
-                <h1 class="leaflet-sidebar-header">
-                   <!-- in case of necessity write a title here such as "Minimize the bar" -->
-                   <p style="font-size: 15px">Minimize the Bar</p>
-                    <span class="leaflet-sidebar-close"><i class="fa fa-caret-right"></i></span>
-                </h1>
-
-
-
-                <p class="lorem" style="margin-top:20px">Click logo on the right to get back to the home page.</p>
-
-                <h4>A Basic Map with Various Functionalities</h4>
-
-                <p style="margin-top:30px; font-family:'Ubuntu', sans-serif; line-height: 20px" align=justify >This is an experimental and very basic map based on Leaflet.js library whose self capabilities were brought together with various different plugins. While creating this map, I tried to show different functionalities of Leaflet from using plugins like <i>dynamic side bar, geolocator, geocoder, cursor coordinate displayer, measurement tool, ajax geojson loader, marker animation </i> to utilizing its own capabilities such as <i>creating some overlaying features, adding layer control, setting max. bounds, max.&min. zoom., hover popup, click popup etc. </i> </p>
-
-                <p style="margin-top:30px; font-family:'Ubuntu', sans-serif; line-height: 20px" align=justify ><i>This map has first been put together when public raised deep concerns such that alleged inapropriate <a href="http://www.hurriyetdailynews.com/dismantling-of-asbestos-filled-factory-halted-in-ankara--110351" target="_blank">dismantling of old coal-gas plant</a> in city center of Ankara (2017) risked healths of thousands of people living nearby (ca. 4km) by causing an uncontrolloed release of dangerous chemical of <a href="https://www.cancer.gov/about-cancer/causes-prevention/risk/substances/asbestos/asbestos-fact-sheet" target="_blank">asbestos</a>. As of Feb,2019 the map has been revised and recreated.</i></p>
-
-                <!--<p style="margin-top:120px;  font-family:'Ubuntu', sans-serif; line-height: 5px; font-size: 0.75em" align=justify ><i> References</i></p>
-
-                 <p style="margin-top:5px;  font-family:'Ubuntu', sans-serif; line-height: 20px; font-size: 0.75em" align=justify ><i> Truck icon made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"              title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"              title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></i></p> -->
-
-
-
-
-                <!-- just added this button as a reminder for using this bar as button container in future works-->
-                <!-- <button type="button" class="btn btn-primary">Primary</button> -->
-
-            </div>
-
-            <div class="leaflet-sidebar-pane" id="profile">
-                <h1 class="leaflet-sidebar-header">Profile<span class="leaflet-sidebar-close"><i class="fa fa-caret-right"></i></span></h1>
-            </div>
-
-            <div class="leaflet-sidebar-pane" id="messages">
-                <h1 class="leaflet-sidebar-header">Messages<span class="leaflet-sidebar-close"><i class="fa fa-caret-right"></i></span></h1>
-            </div>
-
-            <div class="leaflet-sidebar-pane" id="settings">
-                <h1 class="leaflet-sidebar-header">Settings<span class="leaflet-sidebar-close"><i class="fa fa-caret-right"></i></span></h1>
-            </div>
-        </div>
-    </div>
 
     <div id="map"></div>
 
