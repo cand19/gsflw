@@ -137,14 +137,14 @@
           var sizeToUse;
           var volume = feature.properties.Aug_19;
 
-          volume >0 && volume<230 ? colorToUse = "#ffffb2" :
+          volume >=0 && volume<230 ? colorToUse = "#ffffb2" :
          volume > 230 && volume<500 ? colorToUse = "#fecc5c":
           volume >501 && volume<750 ? colorToUse = "#fd8d3c":
           volume>751 && volume<2500 ? colorToUse = "#f03b20":
           volume> 2501 ? colorToUse = "#bd0026":
               colorToUse = "#fff";
 
-        volume >0 && volume<230 ? sizeToUse = 1 :
+        volume >=0 && volume<230 ? sizeToUse = 1 :
          volume > 230 && volume<500 ? sizeToUse = 3:
           volume >501 && volume<750 ? sizeToUse = 5:
           volume>751 && volume<2500 ? sizeToUse = 7:
