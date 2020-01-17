@@ -136,10 +136,10 @@
           var colorToUse;
           var volume = feature.properties.Aug_19;
 
-          volume >0 ? colorToUse = "#fc8d62":
-         volume > 230 ? colorToUse = "#8da0cb":
-          volume >501  ? colorToUse = "#ffd92f":
-          volume>751  ? colorToUse = "#e78ac3":
+          volume >0 && volume<230 ? colorToUse = "#fc8d62":
+         volume > 230 && volume<500 ? colorToUse = "#8da0cb":
+          volume >501 && volume<750 ? colorToUse = "#ffd92f":
+          volume>751 && volume<1500 ? colorToUse = "#e78ac3":
           volume> 1501 ? colorToUse = "#a6d854":
               colorToUse = "#fff";
 
