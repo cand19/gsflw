@@ -148,7 +148,7 @@
       };
 
         info.update = function (props) {
-        this._div.innerHTML = "<h4>2014 Municipal Election Results</h4>" +(props ? "<b>Exporting Country: </b>"+
+        this._div.innerHTML = "<h4>Gas Trade Flow Map in Europe</h4>" +(props ? "<b>Exporting Country: </b>"+
           '<b>' + props.Exit + '</b><br />' + "<b>Importing Country: "+props.Entry
       : 'Hover over Lines'
       );
@@ -190,31 +190,22 @@
 
         //grouping base layers defined above and assigning them to a var
         var baseLayers = {
-            "Grayscale": grayscale,
-		    "Standart": osm,
-            "Satellite": Esri_WorldImagery
+            "Basemap": grayscale
            };
 
          //grouping overlaying features
         var overlayElements = {
-        "Overlay Elements": {
-
-          "Jul-19": jul19
-
+        "Date": {
+        "Jul-19": jul19
     }
 };
 
         //Adding all layers and feautes to map
         L.control.groupedLayers(baseLayers, overlayElements, {collapsed:false}).addTo(map);
 
+        //add mouse position
+        L.control.mousePosition().addTo(map);
 
-
-      // add geolocator
-      L.control.locate().addTo(map);
-
-      //add mouse position
-      L.control.mousePosition().addTo(map);
-      L.Control.geocoder().addTo(map);
 
 
     </script>
