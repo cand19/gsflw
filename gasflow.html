@@ -95,16 +95,6 @@
 
         //basemaps defined below
 
-        /*var grayscale=L.tileLayer('https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png', {
-          attribution: 'Map data &copy; OpenStreetMap contributors'
-        });*/
-
-
-        var grayscale = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-          subdomains: 'abcd',
-          maxZoom: 19
-        });
 
         var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
@@ -271,7 +261,7 @@
 
         info.update = function (props) {
         this._div.innerHTML = "<h4>Gas Trade Flows Map in Europe</h4>" +(props ? "<b>Exporter: </b>"
-         + props.Exit + '<br />' + "<b>Importer: </b>"+props.Entry+ '<br />'+ "<b>Borderpoint: </b>"+props.Borderpoint  + '<br />'+ "<b>Max Flow: </b>"+props.maxFlow  +"<i> (Mm3/h)</i>"+ '<br />' + "<b>Aug '19: </b>"+props.Aug_19+ "<i> (Mm3)</i>"+'<br />' + "<b>Jul '19: </b>"+props.Jul_19+ "<i> (Mm3)</i>"+'<br />' + "<b>Jun '19: </b>"+props.Jun_19 +"<i> (Mm3)</i>": 'Hover over Lines for more Information'
+         + props.Exit + '<br />' + "<b>Importer: </b>"+props.Entry+ '<br />'+ "<b>Borderpoint: </b>"+props.Borderpoint  + '<br />'+ "<b>Max Flow: </b>"+props.maxFlow  +"<i> (Mm3/h)</i>"+ '<br />' + "<b>Aug '19: </b>"+props.Aug_19+ "<i> (Mm3)</i>"+'<br />' + "<b>Jul '19: </b>"+props.Jul_19+ "<i> (Mm3)</i>"+'<br />' + "<b>Jun '19: </b>"+props.Jun_19 +"<i> (Mm3)</i>"+'<br />' + "<b>May '19: </b>"+props.EuropeanGasTradeFlows_txt_May_19 +"<i> (Mm3)</i>": 'Hover over Lines for more Information'
       );
   };
           info.addTo(map);
