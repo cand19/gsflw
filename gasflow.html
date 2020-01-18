@@ -140,7 +140,7 @@
         var map = L.map('map', {
           zoom: 3,
           center: [45.32,19.85],
-          layers: [CartoDB_DarkMatter,aug19, netAug19]
+          layers: [CartoDB_DarkMatter,netAug19,aug19]
 
         });
 
@@ -176,7 +176,7 @@
         function CustomStyle_netAug19(feature) {
           var colorToUse;
           var sizeToUse;
-          var volume = feature.properties.Net_Aug_19;
+          var volume = feature.properties.Net_Aug19;
 
           volume >-8000 && volume<-5000 ? colorToUse = "#feedde" :
          volume > -5001 && volume<-1500 ? colorToUse = "#fdbe85":
