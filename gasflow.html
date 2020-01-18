@@ -348,25 +348,24 @@
 
 
         //grouping base layers defined above and assigning them to a var
-        var baseLayers = {
 
-            "Aug-19": aug19,
-            "Jul-19": jul19,
-            "Jun-19": jun19,
-            "May-19":may19,
-
-           };
 
          //grouping overlaying features
         var overlayMaps = {
         "Net Gas Trade": {
             "Net Aug-19": netAug19,
+        }
+        "Trade Flow":{
+            "Aug-19": aug19,
+            "Jul-19": jul19,
+            "Jun-19": jun19,
+            "May-19":may19,
 
     }
 };
 
         //Adding all layers and feautes to map
-        L.control.groupedLayers(baseLayers,overlayMaps, {collapsed:false}).addTo(map);
+        L.control.groupedLayers(overlayMaps, {collapsed:false}).addTo(map);
 
         //add mouse position
         L.control.mousePosition().addTo(map);
