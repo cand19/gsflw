@@ -230,6 +230,11 @@
         info.update();
       }
 
+      function resetHighlight(e) {
+        jul19.resetStyle(e.target);
+        info.update();
+      }
+
       function onEachFeature(feature, layer) {
         layer.on({
           mouseover: highlightFeature,
