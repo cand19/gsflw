@@ -139,7 +139,7 @@
         var netAug19= new L.GeoJSON.AJAX("assets/js/countriesNet.geojson", {
             style: CustomStyle_netAug19,
             onEachFeature: function (feature, layer) {
-    layer.bindPopup('<h1>'+feature.properties.NAME_ENGL+'</h1><p>name: '+"ss"+'</p>');
+    layer.bindPopup('<h4>'+"Country: "+'</h4>'+feature.properties.NAME_ENGL+'<br />'+'<h4>'+"Net Trade Aug-2019: "+'</h4>'+feature.properties.Net_Aug19+"<i> (Mm3)</i>" );
   }
         })
 
