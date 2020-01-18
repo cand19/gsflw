@@ -460,20 +460,23 @@ legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend');
 
   div.innerHTML += "<h4>Legend</h4>";
-  div.innerHTML += "<h5>Net Trade</h5>";
-  div.innerHTML += '<i style="background: #feedde"></i><span> >-8000 and <-5000 Mm3</span><br>';
-  div.innerHTML += '<i style="background: #fdbe85"></i><span>  >-4999 and <-1500 Mm3</span><br>';
-  div.innerHTML += '<i style="background: #fd8d3c"></i><span> >-1499 and <1500 Mm3</span><br>';
-  div.innerHTML += '<i style="background: #e6550d"></i><span> >1501 and <4000 Mm3</span><br>';
-  div.innerHTML += '<i style="background: #a63603"></i><span> >4001 Mm3</span><br>';
+  div.innerHTML += "<h5>Net Trade (Mm3) </h5>";
+  div.innerHTML += '<i style="background: #feedde"></i><span> >-8000 and <-5000</span><br>';
+  div.innerHTML += '<i style="background: #fdbe85"></i><span>  >-4999 and <-1500</span><br>';
+  div.innerHTML += '<i style="background: #fd8d3c"></i><span> >-1499 and <1500</span><br>';
+  div.innerHTML += '<i style="background: #e6550d"></i><span> >1501 and <4000 </span><br>';
+  div.innerHTML += '<i style="background: #a63603"></i><span> >4001</span><br>';
+
+
+div.innerHTML += "<h5 style= 'margin-top: 10px'>Flow Trade (Mm3)</h5>";
+  div.innerHTML += '<img src="assets/js/images/1-01.png" width="20" height="20"><span> >=0 and <230</span><br>';
+  div.innerHTML += '<img src="assets/js/images/2-01.png" width="20" height="20"><span>  > 230 and <500</span><br>';
+  div.innerHTML += '<img src="assets/js/images/3-01.png" width="20" height="20"><span>  >501 and <750 </span><br>';
+   div.innerHTML += '<img src="assets/js/images/4-01.png" width="20" height="20"><span>  >751 and <2500 </span><br>';
+   div.innerHTML += '<img src="assets/js/images/5-01.png" width="20" height="20"><span>  > 2501 </span><br>';
 
 
 
- /*volume >-8000 && volume<-5000 ? colorToUse = "#feedde" :
-         volume > -5001 && volume<-1500 ? colorToUse = "#fdbe85":
-          volume >-1501 && volume<1500 ? colorToUse = "#fd8d3c":
-          volume>1501 && volume<4000 ? colorToUse = "#e6550d":
-          volume> 4001 ? colorToUse = "#a63603":*/
     return div;
 };
 
