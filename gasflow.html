@@ -348,21 +348,24 @@
 
 
         //grouping base layers defined above and assigning them to a var
-
+        var baseLayer= {
+            "Basemap": CartoDB_DarkMatter
+        }
 
          //grouping overlaying features
         var overlayMaps = {
-
+            "Overlay Elements": {
             "Aug-19": aug19,
             "Jul-19": jul19,
             "Jun-19": jun19,
-            "May-19":may19
-
+            "May-19":may19,
+            "Net Aug-19": netAug19
+}
 
 };
 
         //Adding all layers and feautes to map
-        L.control.groupedLayers(overlayMaps ,{collapsed:false}).addTo(map);
+        L.control.groupedLayers(baseLayer,overlayMaps, {collapsed:false}).addTo(map);
 
         //add mouse position
         L.control.mousePosition().addTo(map);
