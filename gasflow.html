@@ -95,11 +95,7 @@
 
         //basemaps defined below
 
-        var CartoDB_Positron = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 19
-        });
+
         var CartoDB_DarkMatter = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
@@ -116,21 +112,27 @@
             onEachFeature: onEachFeature
         });
 
-        //jul 2019
+        //jul 2019 trade
         var jul19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
             style: CustomStyle_jul19,
             onEachFeature: onEachFeature
         });
 
-        //jul 2019
+        //jul 2019 trade
         var jun19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
             style: CustomStyle_jun19,
             onEachFeature: onEachFeature
         });
 
-        //jul 2019
+        //jul 2019 trade
         var may19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
             style: CustomStyle_may19,
+            onEachFeature: onEachFeature
+        });
+
+        //aug 2019 net countries
+        var netAug19= new L.GeoJSON.AJAX("assets/js/countriesNet.geojson", {
+            style: CustomStyle_netAug19,
             onEachFeature: onEachFeature
         });
 
@@ -138,11 +140,11 @@
         var map = L.map('map', {
           zoom: 3,
           center: [45.32,19.85],
-          layers: [CartoDB_Positron,aug19]
+          layers: [CartoDB_DarkMatter,aug19, netAug19]
 
         });
 
-         // Set up a custom style for aug19
+         // Set up a custom style for aug19 trade lines
         function CustomStyle_aug19(feature) {
           var colorToUse;
           var sizeToUse;
@@ -166,6 +168,25 @@
           return {
             color: colorToUse,
             weight: sizeToUse,
+            opacity: 0.5,
+          };
+        }
+
+        // Set up a custom style for net trade in aug19
+        function CustomStyle_netAug19(feature) {
+          var colorToUse;
+          var sizeToUse;
+          var volume = feature.properties.Net_Aug_19;
+
+          volume >-8000 && volume<-5000 ? colorToUse = "#feedde" :
+         volume > -5001 && volume<-1500 ? colorToUse = "#fdbe85":
+          volume >-1501 && volume<1500 ? colorToUse = "#fd8d3c":
+          volume>1501 && volume<4000 ? colorToUse = "#e6550d":
+          volume> 4001 ? colorToUse = "#a63603":
+              colorToUse = "#fff";
+
+          return {
+            color: colorToUse,
             opacity: 0.5,
           };
         }
@@ -308,6 +329,11 @@
         info.update();
       }
 
+      function resetHighlight(e) {
+        netAug19.resetStyle(e.target);
+        info.update();
+      }
+
       function onEachFeature(feature, layer) {
         layer.on({
           mouseover: highlightFeature,
@@ -331,6 +357,7 @@
          //grouping overlaying features
         var overlayMaps = {
         "Net Gas Trade": {
+            "Net Aug-19": netAug19,
 
     }
 };
