@@ -247,11 +247,19 @@
 
         //grouping base layers defined above and assigning them to a var
         var baseLayers = {
+            "Months":{
             "Aug-19": aug19,
             "Jul-19": jul19
+        }
            };
 
-
+         //grouping overlaying features
+        var overlayElements = {
+        "Date": {
+        "Aug-19": aug19,
+        "Jul-19": jul19
+    }
+};
 
         //Adding all layers and feautes to map
         L.control.groupedLayers(baseLayers, {collapsed:false}).addTo(map);
