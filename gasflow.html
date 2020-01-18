@@ -348,10 +348,7 @@
 
 
         //grouping base layers defined above and assigning them to a var
-        var baselayer = {
-            "Basemap" : CartoDB_DarkMatter,
-            "Standard": osm
-        }
+
 
          //grouping overlaying features
         var overlayMaps = {
@@ -365,7 +362,7 @@
 };
 
         //Adding all layers and feautes to map
-        L.control.groupedLayers(baselayer, overlayMaps,{collapsed:false}).addTo(map);
+        L.control.groupedLayers(overlayMaps {collapsed:false}).addTo(map);
 
         //add mouse position
         L.control.mousePosition().addTo(map);
