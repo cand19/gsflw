@@ -175,7 +175,6 @@
         // Set up a custom style for net trade in aug19
         function CustomStyle_netAug19(feature) {
           var colorToUse;
-          var sizeToUse;
           var volume = feature.properties.Net_Aug19;
 
           volume >-8000 && volume<-5000 ? colorToUse = "#feedde" :
@@ -332,10 +331,7 @@
         info.update();
       }
 
-      function resetHighlight(e) {
-        netAug19.resetStyle(e.target);
-        info.update();
-      }
+
 
       function onEachFeature(feature, layer) {
         layer.on({
@@ -350,7 +346,7 @@
         //grouping base layers defined above and assigning them to a var
         var baseLayers = {
 
-            "Basemap": CartoDB_DarkMatter
+            "Basemap": netAug19
 
            };
 
@@ -358,7 +354,6 @@
         var overlayMaps = {
         "Gas Trade": {
             "Aug-19": aug19,
-            "Net Aug-19": netAug19,
             "Jul-19": jul19,
             "Jun-19": jun19,
             "May-19":may19
