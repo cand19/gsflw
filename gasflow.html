@@ -104,11 +104,7 @@
 
 
 
-        //aug 2019 net countries
-        var netAug19= new L.GeoJSON.AJAX("assets/js/countriesNet.geojson", {
-            style: CustomStyle_netAug19,
-            //onEachFeature: onEachFeature
-        });
+
 
         //aug 2019
         var aug19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
@@ -134,7 +130,11 @@
             onEachFeature: onEachFeature
         });
 
-
+        //aug 2019 net countries
+        var netAug19= new L.GeoJSON.AJAX("assets/js/countriesNet.geojson", {
+            style: CustomStyle_netAug19,
+            //onEachFeature: onEachFeature
+        });
 
 
         var map = L.map('map', {
@@ -348,25 +348,27 @@
 
 
         //grouping base layers defined above and assigning them to a var
+        var baseLayers = {
+            "Net Gas Trade": {
+                "Net Aug-19": netAug19
+            }
 
+           };
 
          //grouping overlaying features
         var overlayMaps = {
-        "Aug-19": {
-            "Net Aug-19": netAug19,
-            "Aug-19": aug19
+        "Gas Flow": {
 
-        },
-        "Jul-19":{
-            "Net Aug-19": netAug19,
-            "Jul-19": jul19
-
+            "Aug-19": aug19,
+            "Jul-19": jul19,
+            "Jun-19": jun19,
+            "May-19":may19,
 
     }
 };
 
         //Adding all layers and feautes to map
-        L.control.groupedLayers(overlayMaps, {collapsed:false}).addTo(map);
+        L.control.groupedLayers(baseLayers,overlayMaps, {collapsed:false}).addTo(map);
 
         //add mouse position
         L.control.mousePosition().addTo(map);
