@@ -367,7 +367,7 @@
 };
 
         //Adding all layers and feautes to map
-        L.control.groupedLayers(baseLayers,overlayMaps, {collapsed:false}).addTo(map);
+        L.control.groupedLayers(overlayMaps, baseLayers,{collapsed:false}).addTo(map);
 
         //add mouse position
         L.control.mousePosition().addTo(map);
