@@ -104,7 +104,11 @@
 
 
 
-
+        //aug 2019 net countries
+        var netAug19= new L.GeoJSON.AJAX("assets/js/countriesNet.geojson", {
+            style: CustomStyle_netAug19,
+            //onEachFeature: onEachFeature
+        });
 
         //aug 2019
         var aug19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
@@ -130,11 +134,7 @@
             onEachFeature: onEachFeature
         });
 
-        //aug 2019 net countries
-        var netAug19= new L.GeoJSON.AJAX("assets/js/countriesNet.geojson", {
-            style: CustomStyle_netAug19,
-            //onEachFeature: onEachFeature
-        });
+
 
 
         var map = L.map('map', {
