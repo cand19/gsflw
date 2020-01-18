@@ -133,14 +133,14 @@
         //aug 2019 net countries
         var netAug19= new L.GeoJSON.AJAX("assets/js/countriesNet.geojson", {
             style: CustomStyle_netAug19,
-            onEachFeature: onEachFeature
+            //onEachFeature: onEachFeature
         });
 
 
         var map = L.map('map', {
           zoom: 3,
           center: [45.32,19.85],
-          layers: [CartoDB_DarkMatter,netAug19,aug19]
+          layers: [CartoDB_DarkMatter,aug19,netAug19]
 
         });
 
