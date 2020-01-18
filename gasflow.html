@@ -4,18 +4,10 @@
 
         <meta charset='utf-8' />
     <title>A Map to Visualize Gas Trade Flow in Europe</title>
-    <meta name="description" content="dynamic side bar, geolocator, geocoder, cursor coordinate displayer, measurement tool, ajax geojson loader, marker animation on leaflet"/>
+    <meta name="description" content=""/>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-57534785-2"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'UA-57534785-2');
-    </script>
 
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
@@ -375,7 +367,7 @@
 
         info.update = function (props) {
         this._div.innerHTML = "<h4>Gas Trade Flows Map in Europe</h4>" +(props ? "<b>Exporter: </b>"
-         + props.Exit + '<br />' + "<b>Importer: </b>"+props.Entry+ '<br />'+ "<b>Borderpoint: </b>"+props.Borderpoint  + '<br />'+ "<b>Max Flow: </b>"+props.maxFlow  +"<i> (Mm3/h)</i>"+ '<br />' + "<b>Aug '19: </b>"+props.Aug_19+ "<i> (Mm3)</i>"+'<br />' + "<b>Jul '19: </b>"+props.Jul_19+ "<i> (Mm3)</i>"+'<br />' + "<b>Jun '19: </b>"+props.Jun_19 +"<i> (Mm3)</i>"+'<br />' + "<b>May '19: </b>"+props.EuropeanGasTradeFlows_txt_May_19 +"<i> (Mm3)</i>": 'Hover over Lines for more Information on Flow or'+'<br />'+'Click on polygons to see Net-Trade Information'
+         + props.Exit + '<br />' + "<b>Importer: </b>"+props.Entry+ '<br />'+ "<b>Borderpoint: </b>"+props.Borderpoint  + '<br />'+ "<b>Max Flow: </b>"+props.maxFlow  +"<i> (Mm3/h)</i>"+ '<br />' + "<b>Aug '19: </b>"+props.Aug_19+ "<i> (Mm3)</i>"+'<br />' + "<b>Jul '19: </b>"+props.Jul_19+ "<i> (Mm3)</i>"+'<br />' + "<b>Jun '19: </b>"+props.Jun_19 +"<i> (Mm3)</i>"+'<br />' + "<b>May '19: </b>"+props.EuropeanGasTradeFlows_txt_May_19 +"<i> (Mm3)</i>": 'Hover over Lines for more Information on Flow'+'<br />'+'Click on polygons to see Net-Trade Information'+'<br />'+'Negative values indicate net importer'
       );
   };
           info.addTo(map);
@@ -468,10 +460,11 @@ legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend');
 
   div.innerHTML += "<h4>Legend</h4>";
-  div.innerHTML += '<i style="background: #feedde"></i><span> >-8000 && <-5000 Mm3</span><br>';
-  div.innerHTML += '<i style="background: #fdbe85"></i><span> >-4999 && <-1500 Mm3</span><br>';
-  div.innerHTML += '<i style="background: #fd8d3c"></i><span> >-1499 && <1500 Mm3</span><br>';
-  div.innerHTML += '<i style="background: #e6550d"></i><span> >1501 && <4000 Mm3</span><br>';
+  div.innerHTML += "<h5>Net Trade</h5>";
+  div.innerHTML += '<i style="background: #feedde"></i><span> >-8000 and <-5000 Mm3</span><br>';
+  div.innerHTML += '<i style="background: #fdbe85"></i><span>  >-4999 and <-1500 Mm3</span><br>';
+  div.innerHTML += '<i style="background: #fd8d3c"></i><span> >-1499 and <1500 Mm3</span><br>';
+  div.innerHTML += '<i style="background: #e6550d"></i><span> >1501 and <4000 Mm3</span><br>';
   div.innerHTML += '<i style="background: #a63603"></i><span> >4001 Mm3</span><br>';
 
 
