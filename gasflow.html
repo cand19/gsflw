@@ -112,7 +112,7 @@
         maxZoom: 19
     });
 
-        //define generic a style
+
 
 
 
@@ -236,7 +236,7 @@
         function CustomStyle_may19(feature) {
           var colorToUse;
           var sizeToUse;
-          var volume = feature.properties.May_19;
+          var volume = feature.properties.EuropeanGasTradeFlows_txt_May_19;
 
           volume >=0 && volume<230 ? colorToUse = "#edf8fb" :
          volume > 230 && volume<500 ? colorToUse = "#b3cde3":
@@ -306,6 +306,11 @@
 
       function resetHighlight(e) {
         jun19.resetStyle(e.target);
+        info.update();
+      }
+
+      function resetHighlight(e) {
+        may19.resetStyle(e.target);
         info.update();
       }
 
