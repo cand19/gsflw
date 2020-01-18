@@ -33,8 +33,6 @@
 
     <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
 
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css' rel='stylesheet' />
     <style>
         body {
             padding: 0;
@@ -103,15 +101,7 @@
         subdomains: 'abcd',
         maxZoom: 19
     });
-        mapboxgl.accessToken = 'pk.eyJ1Ijoic2Fub3ptZW4iLCJhIjoib2xwbVQtQSJ9.1ldcOvJz39J-WFX89QdO_Q';
 
-        var mapbox = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/sanozmen/ck5jcsq1b0i491ioaueye38wd',
-        //X,Y order is different than leaflet.js
-        center: [45.32,19.85],
-
-    });
 
 
 
@@ -144,7 +134,7 @@
         var map = L.map('map', {
           zoom: 3,
           center: [45.32,19.85],
-          layers: [mapbox,aug19]
+          layers: [CartoDB_DarkMatter,aug19]
 
         });
 
