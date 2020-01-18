@@ -102,6 +102,10 @@
         maxZoom: 19
     });
 
+        var osm=L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: 'Map data &copy; OpenStreetMap contributors'
+        });
+
 
 
 
@@ -345,7 +349,8 @@
 
         //grouping base layers defined above and assigning them to a var
         var baselayer = {
-            "Basemap" : CartoDB_DarkMatter
+            "Basemap" : CartoDB_DarkMatter,
+            "Standard": osm
         }
 
          //grouping overlaying features
