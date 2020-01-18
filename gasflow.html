@@ -134,6 +134,13 @@
             onEachFeature: onEachFeature
         });
 
+        //jul 2019
+        var may19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
+            style: CustomStyle_may19,
+            onEachFeature: onEachFeature
+        });
+
+
         var map = L.map('map', {
           zoom: 3,
           center: [48.32,19.85],
@@ -225,6 +232,33 @@
           };
         }
 
+        // Set up a custom style for may19
+        function CustomStyle_may19(feature) {
+          var colorToUse;
+          var sizeToUse;
+          var volume = feature.properties.May_19;
+
+          volume >=0 && volume<230 ? colorToUse = "#edf8fb" :
+         volume > 230 && volume<500 ? colorToUse = "#b3cde3":
+          volume >501 && volume<750 ? colorToUse = "#8c96c6":
+          volume>751 && volume<2500 ? colorToUse = "#8856a7":
+          volume> 2501 ? colorToUse = "#810f7c":
+              colorToUse = "#fff";
+
+        volume >=0 && volume<230 ? sizeToUse = 1 :
+         volume > 230 && volume<500 ? sizeToUse = 3:
+          volume >501 && volume<750 ? sizeToUse = 5:
+          volume>751 && volume<2500 ? sizeToUse = 7:
+          volume> 2501 ? sizeToUse = 9:
+              sizeToUse = 0.5;
+
+
+          return {
+            color: colorToUse,
+            weight: sizeToUse,
+            opacity: 0.5,
+          };
+        }
 
         // control that shows state info on hover
         var info = L.control();
@@ -291,6 +325,7 @@
             "Aug-19": aug19,
             "Jul-19": jul19,
             "Jun-19": jun19,
+            "May-19":may19,
 
            };
 
