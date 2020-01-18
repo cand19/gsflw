@@ -111,31 +111,31 @@
 
 
         //aug 2019
-        var aug19= new L.GeoJSON.AJAX("assets/js/tradeLine.json", {
+        var aug19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
             style: CustomStyle_aug19,
             onEachFeature: onEachFeature
         });
 
         //jul 2019 trade
-        var jul19= new L.GeoJSON.AJAX("assets/js/tradeLine.json", {
+        var jul19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
             style: CustomStyle_jul19,
             onEachFeature: onEachFeature
         });
 
         //jul 2019 trade
-        var jun19= new L.GeoJSON.AJAX("assets/js/tradeLine.json", {
+        var jun19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
             style: CustomStyle_jun19,
             onEachFeature: onEachFeature
         });
 
         //jul 2019 trade
-        var may19= new L.GeoJSON.AJAX("assets/js/tradeLine.json", {
+        var may19= new L.GeoJSON.AJAX("assets/js/tradeLine.geojson", {
             style: CustomStyle_may19,
             onEachFeature: onEachFeature
         });
 
         //aug 2019 net countries
-        var netAug19= new L.GeoJSON.AJAX("assets/js/countriesNet.json", {
+        var netAug19= new L.GeoJSON.AJAX("assets/js/countriesNet.geojson", {
             style: CustomStyle_netAug19,
             //onEachFeature: onEachFeature
         });
@@ -365,7 +365,7 @@
 };
 
         //Adding all layers and feautes to map
-        L.control.groupedLayers(baselayer, overlayMaps ).addTo(map);
+        L.control.groupedLayers(baselayer, overlayMaps,{collapsed:false}).addTo(map);
 
         //add mouse position
         L.control.mousePosition().addTo(map);
