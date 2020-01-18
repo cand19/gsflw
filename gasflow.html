@@ -21,10 +21,6 @@
     <!-- bootstrap css-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
-
-    <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
-
     <style>
         body {
             padding: 0;
@@ -163,7 +159,7 @@
   }
         })
 
-        //jun 2019 net countries
+        //may 2019 net countries
         var netMay19= new L.GeoJSON.AJAX("assets/js/countriesNet.geojson", {
             style: CustomStyle_netMay19,
             onEachFeature: function (feature, layer) {
