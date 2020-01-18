@@ -348,19 +348,20 @@
 
 
         //grouping base layers defined above and assigning them to a var
-        var overlayMaps = {
+        var baseLayers = {
 
-            "Aug-19": aug19,
-            "Jul-19": jul19,
-            "Jun-19": jun19,
-            "May-19":may19,
+            "Basemap": CartoDB_DarkMatter
 
            };
 
          //grouping overlaying features
-        var baseLayers = {
-        "Net Gas Trade": {
+        var overlayMaps = {
+        "Gas Trade": {
+            "Aug-19": aug19,
             "Net Aug-19": netAug19,
+            "Jul-19": jul19,
+            "Jun-19": jun19,
+            "May-19":may19
 
     }
 };
